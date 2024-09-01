@@ -59,8 +59,8 @@ function App() {
       (clip) => clip.keyTrigger === e.key.toUpperCase());
     if (!clip) return;
 
-    document.getElementById(clip.keyTrigger as HTMLAudioElement).play().catch(console.error);
-    /*(document.getElementById(clip.keyTrigger as HTMLAudioElement)
+    /*document.getElementById(clip.keyTrigger as HTMLAudioElement).play().catch(console.error);
+    (document.getElementById(clip.keyTrigger as HTMLAudioElement)
     .play()
     .then(() => {
       console.log('played');
