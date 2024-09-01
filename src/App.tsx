@@ -60,10 +60,10 @@ function App() {
     if (!clip) return;
     (document.getElementById(clip.keyTrigger as HTMLAudioElement)
     .play()
-    .then(() => {
+   /* .then(() => {
       console.log('played');
-    }))
-    .catch(console.error);
+    }))*/
+    .catch(console.error));
 
     document.getElementById('drum-' + clip.keyTrigger)?.focus();
     document.getElementById('display')!.innerText = clip.description;
