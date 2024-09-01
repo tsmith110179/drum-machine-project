@@ -2,6 +2,7 @@ import './App.css';
 import { AudioClip } from './types.ts';
 import Drum from './Drum.tsx';
 
+
 const audioClips: AudioClip[] =[
   {
     keyTrigger: "Q",
@@ -32,7 +33,7 @@ const audioClips: AudioClip[] =[
   {
     keyTrigger: "D",
     url: "https://s3.amazonaws.com/freecodecamp/drums/Dsc_Oh.mp3",
-    description: "Open-HH",
+    description: "Open HH",
   }, 
   {
     keyTrigger: "Z",
@@ -47,7 +48,7 @@ const audioClips: AudioClip[] =[
   {
     keyTrigger: "C",
     url: "https://s3.amazonaws.com/freecodecamp/drums/Cev_H2.mp3",
-    description: "Closed-HH",
+    description: "Closed HH",
   },
 ]
 
@@ -55,26 +56,30 @@ function App() {
 
   const playAudio = (e: React.KeyboardEvent<HTMLDivElement>) => {
     const clip = audioClips.find(
-      (clip) => clip.keyTrigger === e.key.toUpperCase()
-    );
-    /*if (!clip) return;*/
-    document.getElementById(clip.keyTrigger as HTMLAudioElement).play().catch(console.error);
+      (clip) => clip.keyTrigger === e.key.toUpperCase());
+    if (!clip) return;
+    (document.getElementById(clip.keyTrigger as HTMLAudioElement)
+    .play()
+    .then(() => {
+      console.log('played');
+    }))
+    .catch(console.error);
 
     document.getElementById('drum-' + clip.keyTrigger)?.focus();
     document.getElementById('display')!.innerText = clip.description;
-}
+};
 
-  return (
-    <div className="container" id="drum-machine" onKeyDown={playAudio}>
-      <h1>Trent's Drum Machine</h1>
-      <div className="whole-drum">
-        {audioClips.map((clip) => (
-           <Drum audioClip={clip} key={clip.keyTrigger}/>
-        ))}
-      </div>
-      <div id="display"></div>
+
+return (
+  <div className="container" id="drum-machine" onKeyDown={playAudio}>
+    <h1>Trent's Drum Machine</h1>
+    <div className="whole-drum">
+      {audioClips.map((clip) => (
+         <Drum audioClip={clip} key={clip.keyTrigger} />
+      ))}
     </div>
-  )
+    <div id="display"></div>
+  </div>
+)
 }
-
 export default App
