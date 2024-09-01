@@ -1,6 +1,6 @@
-import './App.css'
-import { AudioClip } from './types.ts'
-import Drum from './Drum.tsx'
+import './App.css';
+import { AudioClip } from './types.ts';
+import Drum from './Drum.tsx';
 
 
 const audioClips: AudioClip[] =[
