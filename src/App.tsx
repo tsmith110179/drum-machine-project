@@ -57,7 +57,7 @@ function App() {
     const clip = audioClips.find(
       (clip) => clip.keyTrigger === e.key.toUpperCase()
     );
-    if (!clip) return;
+    /*if (!clip) return;*/
     document.getElementById(clip.keyTrigger as HTMLAudioElement).play().catch(console.error);
 
     document.getElementById('drum-' + clip.keyTrigger)?.focus();
