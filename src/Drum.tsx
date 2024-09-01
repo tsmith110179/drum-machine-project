@@ -1,6 +1,6 @@
 import { AudioClip} from './types.ts';
 
-interface DrumProps{
+interface DrumPadProps{
     audioClip: AudioClip;
 }
 
