@@ -27,3 +27,7 @@
 .drum-pad:active{
   transform: translate(4px, 4px);
 }
+
+@media(max-width: 600px){
+  .container{margin: 0;}
+}
